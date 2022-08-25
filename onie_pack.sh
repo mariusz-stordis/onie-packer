@@ -8,9 +8,9 @@
 #
 
 INSTDIR=./installers
-DEFINST=ubuntu2iso
+DEFINST=ubuntu2bin
 DATE=`date +%Y%m%d`
-ONIEIMG="onie-installer-x86_64-${DATE}.bin"
+ONIEIMG="ubuntu2bin-x86_64-${DATE}.bin"
 
 usage() {
         echo "Usage: $0 [-i installer] os_image"
