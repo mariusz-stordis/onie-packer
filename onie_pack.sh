@@ -8,7 +8,7 @@
 #
 
 INSTDIR=./installers
-DEFINST=ubuntu18xx-iso
+DEFINST=ubuntu2iso
 DATE=`date +%Y%m%d`
 ONIEIMG="onie-installer-x86_64-${DATE}.bin"
 
