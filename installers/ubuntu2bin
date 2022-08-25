@@ -69,7 +69,7 @@ cp -a /dev/sd* "$TDIR/dev/"
 # GET UBUNTU RELEASE INFORMATION
 echo "I: Checking Ubuntu Version..."
 . "$TDIR/etc/os-release"
-if [ "$VERSION_ID" = "18.04" ] || [ "$VERSION_ID" = "18.10" ]
+if [ "$VERSION_ID" = "20.04" ] || [ "$VERSION_ID" = "22.04" ]
 then
         echo "I: Ubuntu $VERSION_ID is detected"
 else
@@ -87,13 +87,13 @@ chroot "$TDIR" sh -c "systemctl enable ssh.service"
 chroot "$TDIR" sh -c "ssh-keygen -A"
 
 # REMOVE SOME PACKAGES
-chroot "$TDIR" sh -c "apt purge snapd squashfs-tools cloud-init unattended-upgrades apport -y"
+#chroot "$TDIR" sh -c "apt purge snapd squashfs-tools cloud-init unattended-upgrades apport -y"
 
 # CONFIGURE ADDITIONAL SERVICES
-chroot "$TDIR" sh -c 'systemctl disable apparmor.service'
-chroot "$TDIR" sh -c 'systemctl disable apt-daily-upgrade apt-daily-upgrade.timer'
-chroot "$TDIR" sh -c 'systemctl disable open-iscsi.service open-vm-tools.service iscsid.socket'
-chroot "$TDIR" sh -c 'systemctl disable motd-news.timer'
+#chroot "$TDIR" sh -c 'systemctl disable apparmor.service'
+#chroot "$TDIR" sh -c 'systemctl disable apt-daily-upgrade apt-daily-upgrade.timer'
+#chroot "$TDIR" sh -c 'systemctl disable open-iscsi.service open-vm-tools.service iscsid.socket'
+#chroot "$TDIR" sh -c 'systemctl disable motd-news.timer'
 
 # DISABLE DYNAMIC MOTD
 sed -i -- 's/ENABLED=1/ENABLED=0/g' "$TDIR/etc/default/motd-news"
