@@ -17,9 +17,9 @@ FSFILE="$ISODIR/casper/filesystem.squashfs"
 FSDIR=/mnt/fs
 
 HOSTNAME=sw
-USERNAME=admin
-USERPASS=admin
-ROOTPASS=Password1
+USERNAME=ubuntu
+USERPASS=ubuntu
+ROOTPASS=pass
 
 cleanup() {
     chroot "$TDIR" sh -c 'umount /proc; umount /sys; umount /dev/pts'
@@ -73,7 +73,7 @@ if [ "$VERSION_ID" = "18.04" ] || [ "$VERSION_ID" = "18.10" ]
 then
         echo "I: Ubuntu $VERSION_ID is detected"
 else
-        fail "Unsupported Ubuntu version: $VERSION_ID"
+        echo "Unsupported Ubuntu version: $VERSION_ID"
 fi
 
 # RECONFIGURE OS
